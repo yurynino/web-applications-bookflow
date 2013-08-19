@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="login.css"/>
+    </h:head>
+
+    <h:body>
+        <ui:composition template="/templates/template.xhtml">
+            <ui:define name="content">
+                <div class="container-fluid">
+                    <div class="row-fluid">
+                        <div class="span8">
+                            <div class="hero-unit pull-justify">
+                                <h1>BookFlow</h1>
+                                <p> BookFlow es un sistema de información para el manejo de procesos involucrados en 
+                                    la publicación de libros de la Editorial UD de la Universidad Distrital Francisco 
+                                    José de Caldas.
+                                </p>
+                                <p>
+                                    BookFlow provee servicios que facilitan y automatizan la gestión de los procesos 
+                                    involucrados en la publicación de un libro. Adicionalmente, permite el seguimiento 
+                                    de actores involucrados, tiempos estimados y costos asignados.
+                                </p>
+                            </div>
+                        </div><!--/span-->
+
+                        <div class="span4">
+                            <form class="custom-form form-horizontal" method="post" action="j_security_check">
+                                <div class="control-group">
+                                    <label class="control-label" for="inputEmail">Usuario</label>
+                                    <div class="controls">
+                                        <input type="text" name="j_username" />
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputPassword">Contraseña</label>
+                                    <div class="controls">
+                                        <input type="password" name="j_password" />
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <button type="submit" class="btn">Ingresar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div><!--/span-->
+                    </div><!--/row-->
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

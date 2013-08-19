@@ -1,0 +1,32 @@
+.custom-form {
+    position: relative;
+    padding: 30px 2px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+
+.form-horizontal .control-label {
+    float: left;
+    width: 120px;
+    padding-top: 5px;
+    text-align: right;
+}
+
+.form-horizontal .controls {
+    margin-left: 140px;
+}
+
+input, textarea, .uneditable-input {
+    width: 230px;
+}
+
+.hero-unit {
+    background-color: white;
+}
+
+.hero-unit h1 {
+    margin-bottom: 10px;
+}
