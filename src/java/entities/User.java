@@ -14,7 +14,7 @@ import javax.persistence.Table;
  *s
  * @author yury
  */
-@Entity
+@Entity(name = "User")
 @Table(name = "user")
 public class User implements Serializable {
 
@@ -22,8 +22,10 @@ public class User implements Serializable {
     @Id
     @Column(name = "user_login", unique = true, nullable = false)
     private String login;
+    
     @Column(name = "user_password", nullable = false)
     private String password;
+    
     @Column(name = "user_name", nullable = false)
     private String name;
 
