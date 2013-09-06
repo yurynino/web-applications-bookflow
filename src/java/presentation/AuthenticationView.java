@@ -7,6 +7,9 @@ package presentation;
 import java.io.Serializable;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import services.UserService;
 
 /**
  *
@@ -15,11 +18,10 @@ import javax.enterprise.context.RequestScoped;
 @Named(value = "authenticationView")
 @RequestScoped
 public class AuthenticationView implements Serializable {
-    
+
     private String username;
-    
     private String password;
-    
+
     public AuthenticationView() {
     }
 
@@ -36,4 +38,9 @@ public class AuthenticationView implements Serializable {
         System.out.println(password);
     }
 
+    public static void main(String[] args) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("bookflowPU");
+        UserService userService = new UserService(emf);
+        System.out.print(userService.findUsers());
+    }
 }
