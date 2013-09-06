@@ -6,9 +6,9 @@
         <property name="portNumber" value="3306"/>
         <property name="databaseName" value="bookflow"/>
         <property name="User" value="root"/>
-        <property name="Password" value="davinchi"/>
+        <property name="Password" value="admin"/>
         <property name="URL" value="jdbc:mysql://localhost:3306/bookflow?zeroDateTimeBehavior=convertToNull"/>
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
     </jdbc-connection-pool>
-    <jdbc-resource enabled="true" jndi-name="bookflow" object-type="user" pool-name="mysql_bookflow_rootPool"/>
+    <jdbc-resource enabled="true" jndi-name="jdbc/bookflow" object-type="user" pool-name="mysql_bookflow_rootPool"/>
 </resources>
