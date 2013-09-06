@@ -10,30 +10,33 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
  *
- * @author david
+ * @author dmontanor
  */
 @Entity
-@Table(name = "book")
-public class Book implements Serializable {
+@Table(name = "stage")
+public class Stage implements Serializable {
 
     @Id
     @GeneratedValue
-    @Column(name = "id", nullable = false, unique = true)
     private Integer id;
 
-    @Column(name = "title", nullable = false, unique = true)
-    private String title;
+    @Column(name = "name")
+    private String name;
 
-    public Book() {
-    }
+    @OneToMany
+    @JoinColumn(name="flow_id")
+    private Flow flow;
 
-    public Book(String title) {
-        this.title = title;
-    }
+    @OneToOne
+    @JoinColumn(name = "next_stage_id")
+    private Stage next;
 
     public Integer getId() {
         return id;
@@ -43,18 +46,34 @@ public class Book implements Serializable {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setFlow(Flow flow) {
+        this.flow = flow;
+    }
+
+    public Flow getFlow() {
+        return flow;
+    }
+
+    public Stage getNext() {
+        return next;
+    }
+
+    public void setNext(Stage next) {
+        this.next = next;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 13 * hash + Objects.hashCode(this.id);
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -66,7 +85,7 @@ public class Book implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Book other = (Book) obj;
+        final Stage other = (Stage) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }

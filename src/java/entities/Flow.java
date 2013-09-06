@@ -14,26 +14,19 @@ import javax.persistence.Table;
 
 /**
  *
- * @author david
+ * @author dmontanor
  */
 @Entity
-@Table(name = "book")
-public class Book implements Serializable {
+@Table(name = "flow")
+public class Flow implements Serializable {
 
     @Id
     @GeneratedValue
     @Column(name = "id", nullable = false, unique = true)
     private Integer id;
 
-    @Column(name = "title", nullable = false, unique = true)
-    private String title;
-
-    public Book() {
-    }
-
-    public Book(String title) {
-        this.title = title;
-    }
+    @Column(name = "name", nullable = false, unique = true)
+    private String name;
 
     public Integer getId() {
         return id;
@@ -43,18 +36,18 @@ public class Book implements Serializable {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 13 * hash + Objects.hashCode(this.id);
+        hash = 53 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -66,12 +59,10 @@ public class Book implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Book other = (Book) obj;
+        final Flow other = (Flow) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;
     }
-
-
 }
