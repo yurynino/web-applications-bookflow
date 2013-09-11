@@ -5,13 +5,10 @@
 package dao.imp;
 
 import dao.IGenericDao;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
-import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 
 /**

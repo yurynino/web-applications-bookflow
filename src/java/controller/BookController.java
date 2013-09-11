@@ -5,7 +5,10 @@
 package controller;
 
 import dao.IBookDao;
+import entities.Book;
+import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -13,24 +16,36 @@ import javax.inject.Named;
  *
  * @author david
  */
-@Named
+@Named("bookController")
 @RequestScoped
-public class BookController {
+public class BookController implements Serializable {
 
     @Inject
     private IBookDao bookDao;
 
-    private BookCommand book = new BookCommand();
+    private Book book = new Book();
 
-    public void save() {
-        bookDao.save(book.toBook());
+    private Integer bookId;
+
+    public String save() {
+        bookDao.save(book);
+        bookId = book.getId();
+        return "editBookStages?faces-redirect=true&includeViewParams=true";
     }
 
-    public void setBook(BookCommand book) {
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
         this.book = book;
     }
 
-    public BookCommand getBook() {
-        return book;
+    public Integer getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(Integer bookId) {
+        this.bookId = bookId;
     }
 }
