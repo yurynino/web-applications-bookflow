@@ -11,7 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -30,7 +30,7 @@ public class Stage implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name="flow_id")
     private Flow flow;
 

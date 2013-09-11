@@ -7,7 +7,7 @@
         <jta-data-source>jdbc/bookflow</jta-data-source>
         <properties>
             <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
-            <property name="eclipselink.ddl-generation.output-mode" value="sql-script" />
+            <!--<property name="eclipselink.ddl-generation.output-mode" value="sql-script" />-->
             <!--<property name="eclipselink.application-location" value="sql-script" />-->
         </properties>
     </persistence-unit>
